@@ -30,6 +30,7 @@ app.set('port',(process.env.PORT || 3000));
 
 //sends to router index
 app.use('/',index);
+app.use('/users',users);
 
 // app.get('/',function(request,response){
 //   response.send("hello");
