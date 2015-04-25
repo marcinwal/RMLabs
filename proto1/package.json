@@ -1,0 +1,21 @@
+{
+  "name": "proto1",
+  "version": "1.0.0",
+  "description": "1st prototype of points project.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "casper-chai": "^0.2.1",
+    "casperjs": "^1.1.0-beta3",
+    "chai": "^2.2.0",
+    "grunt": "^0.4.5",
+    "grunt-mocha-casperjs": "^1.4.3",
+    "mocha": "^2.2.4",
+    "mocha-casperjs": "^0.5.3",
+    "phantomjs": "^1.9.16"
+  }
+}
