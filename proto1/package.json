@@ -13,9 +13,13 @@
     "casperjs": "^1.1.0-beta3",
     "chai": "^2.2.0",
     "grunt": "^0.4.5",
+    "grunt-express-server": "^0.5.1",
     "grunt-mocha-casperjs": "^1.4.3",
     "mocha": "^2.2.4",
     "mocha-casperjs": "^0.5.3",
     "phantomjs": "^1.9.16"
+  },
+  "dependencies": {
+    "express": "^4.12.3"
   }
 }
