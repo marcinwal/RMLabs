@@ -20,3 +20,15 @@ describe('homepage',function(){
     })
   });
 });
+
+describe('adminpage',function(){
+  before(fucntion(){
+    casper.start(host+'/admin');
+  });
+
+  it('should have all users',function(){
+    casper.then(function(){
+      expect("body").to.have.text("name");
+    });
+  });
+});

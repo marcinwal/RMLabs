@@ -11,12 +11,12 @@ var SFsimulator = require('../helpers/SFsimulator');
 router.get('/:id',function(request,response){
   var id = request.params.id;
   console.log(id);
-  response.send(SFsimulator(id));
+  response.render('admin',{user: SFsimulator(id)});
 });
 
 router.get('/',function(request,response){
   var id = request.params.id;
-  response.send(SFsimulator());
+  response.render('admin',{user: SFsimulator()});
 });
 
 module.exports = router;
