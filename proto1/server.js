@@ -12,6 +12,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var admin = require('./routes/admin');
 var about = require('./routes/about');
+var cpd = require('./routes/cpd');
 
 
 //server set-up
@@ -34,6 +35,7 @@ app.use('/',index);
 app.use('/users',users);
 app.use('/admin',admin);
 app.use('/about',about);
+app.use('/cpd',cpd);
 
 server.listen(app.get('port'),function(){
   console.log('server is running on port:' + app.get('port'));
