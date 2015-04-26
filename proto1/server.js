@@ -11,6 +11,7 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var admin = require('./routes/admin');
+var about = require('./routes/about');
 
 
 //server set-up
@@ -32,6 +33,7 @@ app.use(express.static(__dirname + '/public'))
 app.use('/',index);
 app.use('/users',users);
 app.use('/admin',admin);
+app.use('/about',about);
 
 server.listen(app.get('port'),function(){
   console.log('server is running on port:' + app.get('port'));

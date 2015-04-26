@@ -1,3 +1,7 @@
 h1{
   color: black;
 }
+
+li{
+  list-style-type: none;
+}
