@@ -13,7 +13,7 @@ var users = require('./routes/users');
 var admin = require('./routes/admin');
 var about = require('./routes/about');
 var cpd = require('./routes/cpd');
-
+var course = require('./routes/course');
 
 //server set-up
 app.set('view engine','jade');
@@ -30,12 +30,13 @@ app.set('port',(process.env.PORT || 3000));
 app.use(express.static(__dirname + '/public'))
   .use(cookieParser());
 
-//sends to router index
+//sends to router index -- midlware
 app.use('/',index);
 app.use('/users',users);
 app.use('/admin',admin);
 app.use('/about',about);
 app.use('/cpd',cpd);
+app.use('/course',course);
 
 server.listen(app.get('port'),function(){
   console.log('server is running on port:' + app.get('port'));

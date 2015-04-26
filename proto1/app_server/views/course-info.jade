@@ -1,0 +1,47 @@
+extends layout
+
+
+block content
+  h3= title
+  .row.page-header
+    .col-lg-12
+      h1 Super lawyer
+  .row
+    .col-xs-12.col-md-9
+      .row
+        .col-xs-12.col-sm-6
+          p.rating
+            span.glyphicon.glyphicon-star
+            span.glyphicon.glyphicon-empty
+          p 120 River road
+          .panel.panel-primary
+            .panel-heading
+              h2.panel-title CPD to gain
+            .panel-body
+              p level I    2
+              p level II   5
+              p level III  7
+          .panel.panel-primary
+            .panel-heading
+              h2.panel-title Dates
+            .panel-body
+              span.label.label-warning
+                span.glyphicon.glyphicon-ok
+                | &nbsp; April
+              | &nbsp
+              span.label.label-warning
+                span.glyphicon.glyphicon-ok
+                | &nbsp; September
+              | &nbsp
+        .col-xs-12.col-sm-6.location-map
+          .panel.panel-primary
+            .panel-heading
+              h2.panel-title Location map 
+            .panel-body
+              img.img-responsive.img-rounded(src='http://maps.googleapis.com/maps/api/staticmap?center=51,-1&zoom=17&size=400x350&sensor=false&markers=51,-1&scale=2')
+      .row
+        .col-xs-12
+          .panel.pannel-primary.review-panel
+            .panel-heading
+              a.btn.btn-default.pull-rigth(href='/course/new') Add course
+

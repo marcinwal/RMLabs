@@ -1,7 +1,10 @@
 extends layout
 
 block content
-  p You are on the #{title}
-  h1= title
-  p Welcome #{title}
-  p Finally it is working 
+  #banner.page-header
+    .row
+      .col-lg-6
+        br
+        h4 You are on the '#{title}'
+        p Welcome #{title}
+        p Finally it is working 
