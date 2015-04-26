@@ -1,0 +1,16 @@
+{
+  "name": "proto1",
+  "version": "0.0.0",
+  "homepage": "https://github.com/marcinwal/RMLabs",
+  "authors": [
+    "marcin walendzik <marcin.walendzik@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -5,9 +5,11 @@ var http = require('http');
 var app = express();
 var server = http.createServer(app);
 
+var router = express.Router();
+
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var expressLayouts = require('express-ejs-layouts');
+// var expressLayouts = require('express-ejs-layouts');
 
 //router
 var index = require('./routes/index');
@@ -16,21 +18,24 @@ var admin = require('./routes/admin');
 
 
 //server set-up
-app.set('view engine','ejs');
-app.use(bodyParser.urlencoded({'extended':'true'}));
+app.set('view engine','jade');
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
-app.use(expressLayouts);
-
-
+// app.use(expressLayouts);
 
 
 
 app.set('views',path.join(__dirname,'app_server','views'));
 app.set('port',(process.env.PORT || 3000));
 
+
+app.use(express.static(__dirname + '/public'))
+  .use(cookieParser());
+
 //sends to router index
 app.use('/',index);
 app.use('/users',users);
+app.use('/admin',admin);
 
 // app.get('/',function(request,response){
 //   response.send("hello");

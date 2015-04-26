@@ -1,9 +1,8 @@
 var express = require('express');
 var router = express.Router();
+var ctrlMain = require('../app_server/controllers/main');
 
-router.get('/',function(req,res){
-  // res.render('index',{title: 'Express'});
-  res.send('hello');
-});
+
+router.get('/',ctrlMain.index);
 
 module.exports = router; 
