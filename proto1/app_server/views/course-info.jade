@@ -1,3 +1,4 @@
+include _includes/sharedFunctions
 extends layout
 
 block content
@@ -10,34 +11,29 @@ block content
       .row
         .col-xs-12.col-sm-6
           p.rating
-            span.glyphicon.glyphicon-star
-            span.glyphicon.glyphicon-empty
-          p 120 River road
+            +courseRating(courseDetails.rating)
+          p #{courseDetails.address}
           .panel.panel-primary
             .panel-heading
               h2.panel-title CPD to gain
             .panel-body
-                p.level level I   2
-                p.level level II  5
-                p.level level III 7
+              each points,index in courseDetails.levels
+                p Level #{index+1} - #{points}
           .panel.panel-primary
             .panel-heading
               h2.panel-title Dates
             .panel-body
-              span.label.label-warning
-                span.glyphicon.glyphicon-ok
-                | &nbsp; April
-              | &nbsp
-              span.label.label-warning
-                span.glyphicon.glyphicon-ok
-                | &nbsp; September
-              | &nbsp
+              each month in courseDetails.dates
+                span.label.label-warning
+                  span.glyphicon.glyphicon-ok
+                  | &nbsp; #{month}
+                | &nbsp
         .col-xs-12.col-sm-6.location-map
           .panel.panel-primary
             .panel-heading
               h2.panel-title Location map 
             .panel-body
-              img.img-responsive.img-rounded(src='http://maps.googleapis.com/maps/api/staticmap?center=51,-1&zoom=17&size=400x350&sensor=false&markers=51,-1&scale=2')
+              img.img-responsive.img-rounded(src='http://maps.googleapis.com/maps/api/staticmap?center=#{courseDetails.location[0]},#{courseDetails.location[1]}&zoom=14&size=400x350&sensor=false&markers=#{courseDetails.location[0]},#{courseDetails.location[1]}&scale=2')
       .row
         .col-xs-12
           .panel.pannel-primary.review-panel

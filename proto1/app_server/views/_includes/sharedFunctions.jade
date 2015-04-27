@@ -3,3 +3,7 @@ mixin outputCPD(cpd)
     span.glyphicon.glyphicon-star
   - for(var i=cpd;i<15;i++)
     span.glyphicon.glyphicon-star-empty
+
+mixin courseRating(rating)
+  - for(var i=0;i<rating;i++)
+    span.glyphicon.glyphicon-star
