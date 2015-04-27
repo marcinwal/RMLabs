@@ -15,5 +15,6 @@ block content
         p User's surname: #{user.surname}
         span.label.label-danger CPD: #{user.CPD} 
         +outputCPD(user.CPD)
+        a(href="/admin/"+user.id) Details
 
 
