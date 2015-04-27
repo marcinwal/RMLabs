@@ -1,0 +1,49 @@
+extends layout
+
+block content
+  .row.page-header
+    .col-lg-12
+      h1 Adding new course  
+  .row
+    .col-xs-12.col-md-6    
+      .form.form-horizontal(action="/course", method="get", role="form")
+        .form-group
+          label.col-sm-2.control-label(for="name") Name
+          .col-sm-10
+            textarea#name.form-control(name="name", rows="1")
+        .form-group
+          label.col-xs-10.col-sm-2.control-label(for="rating") Rating
+          .col-xs-12.col-sm-2
+            select#rating.for-control.input-sm(name="rating")
+              option 5
+              option 4
+              option 3
+              option 2
+              option 1
+        .form-group
+          label.col-xs-12.col-sm-2.control-lable(for="cdr") CDR points
+          .col-xs-12.col-sm-2
+            select#cdr.for-control.input-sm(name="cdr")
+              option 1
+              option 2
+              option 3
+              option 4
+              option 5
+              option 6
+              option 7
+              option 8
+              option 9
+              option 10
+        .form-group
+          label.col-sm-2.control-label(for="address") Address:
+          .col-sm-10
+            textarea#address.form-control(name="address", rows="2")
+        .form-group        
+           label.col-sm-2.control-label(for="date1") Start date:
+           .col-md-8
+             #datetimepicker1.input-group.date
+              .input(type="text")#form-control
+                span.input-group-addon
+                  span.glyphicon.glyphicon-calendar
+     
+
