@@ -3,6 +3,7 @@ var path = require('path');
 var http = require('http');
 var app = express();
 var server = http.createServer(app);
+require('./app_server/models/db'); //link to mongoose
 
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');

@@ -5,7 +5,7 @@ module.exports.courseInfo = function(request,response){
       address: '120 River road',
       levels: [2,5,7],
       dates: ['april','september','december'],
-      location: [51.444034,-0.2913375,13]
+      location: [51.455034,-0.2913375]
     }});
 };
 
