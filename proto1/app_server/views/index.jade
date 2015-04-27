@@ -4,7 +4,5 @@ block content
   #banner.page-header
     .row
       .col-lg-6
-        br
-        h4 You are on the '#{title}'
-        p Welcome #{title}
-        p Finally it is working 
+        h1.title= pageHeader.title
+        h5 &nbsp; #{pageHeader.strapline}

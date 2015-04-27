@@ -1,3 +1,4 @@
+include _includes/sharedFunctions
 extends layout
 
 block content
@@ -7,23 +8,12 @@ block content
         h3 You are on the #{title} 
            of all users with their CPDs.
   .row
-    .col-xs-12.list-group-item 
-      h1= user[0].name
-      p User's name: #{user[0].name}
-      p User's surname: #{user[0].surname}
-      span.label.label-danger CPD: #{user[0].CPD} 
-    .col-xs-12.list-group-item   
-      h1= user[0].name
-      p User's name: #{user[0].name}
-      p User's surname: #{user[0].surname}
-      span.label.label-danger CPD: #{user[0].CPD} 
-    .col-xs-12.list-group-item 
-      h1= user[1].name
-      p User's name: #{user[1].name}
-      p User's surname: #{user[1].surname}
-      span.label.label-warning CPD: #{user[1].CPD} 
-      span.glyphicon.glyphicon-star
-      span.glyphicon.glyphicon-star
-      span.glyphicon.glyphicon-star
-      span.glyphicon.glyphicon-star
-      span.glyphicon.glyphicon-star-empty
+    each user in users
+      .col-xs-12.list-group-item 
+        h1= user.name
+        p User's name: #{user.name}
+        p User's surname: #{user.surname}
+        span.label.label-danger CPD: #{user.CPD} 
+        +outputCPD(user.CPD)
+
+
