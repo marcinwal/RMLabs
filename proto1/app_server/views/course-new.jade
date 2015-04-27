@@ -38,12 +38,15 @@ block content
           label.col-sm-2.control-label(for="address") Address:
           .col-sm-10
             textarea#address.form-control(name="address", rows="2")
-        .form-group        
-           label.col-sm-2.control-label(for="date1") Start date:
-           .col-md-8
-             #datetimepicker1.input-group.date
-              .input(type="text")#form-control
-                span.input-group-addon
-                  span.glyphicon.glyphicon-calendar
+        .control-group 
+          label.control-label Insert date
+          .controls
+            input.input-xlarge#datepicker(type='date', name='startDate', value='1015-05-05')
+            span.help-inline 
+        .control-group 
+          label.control-label Dates
+            input.input-small.input-daterange(type="date", value='2015-05-05')#date1
+            span.add-on to
+            input.input-small.input-daterange(type="date", value='2015-05-05')#date2
      
 
