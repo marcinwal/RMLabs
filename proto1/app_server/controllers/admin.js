@@ -1,4 +1,4 @@
-var SFsimulator = require('../../helpers/SFsimulator');
+var SFsimulator = require('../helpers/SFsimulator');
 
 module.exports.admin_id = function(request,response){
   var id = request.params.id;

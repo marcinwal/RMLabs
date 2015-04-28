@@ -3,25 +3,21 @@ var path = require('path');
 var http = require('http');
 var app = express();
 var server = http.createServer(app);
-require('./app_server/models/db'); //link to mongoose
+require('./app_api/models/db'); //link to mongoose
 
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-//router
-var index = require('./routes/index');
-var users = require('./routes/users');
-var admin = require('./routes/admin');
-var about = require('./routes/about');
-var cpd = require('./routes/cpd');
-var course = require('./routes/course');
+
+//routes for api and the server
+var routes = require('./app_server/routes/index');
+var routesAPi = require('./app_api/routes/index');
 
 
 //server set-up
 app.set('view engine','jade');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
-// app.use(expressLayouts);
 
 
 //setting views and port
@@ -33,13 +29,8 @@ app.use(express.static(__dirname + '/public'))
   .use(cookieParser());
 
 //sends to router index -- midlware
-app.use('/',index);
-app.use('/users',users);
-app.use('/admin',admin);
-app.use('/about',about);
-app.use('/cpd',cpd);
-app.use('/course',course);
-
+app.use('/',routes);
+app.use('/api',routesAPi);
 
 server.listen(app.get('port'),function(){
   console.log('server is running on port:' + app.get('port'));
