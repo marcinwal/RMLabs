@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var user = new mongoose.Schema({
+var userSchema = new mongoose.Schema({
   name: {type: String, required: true},
   surname: {type: String, required: true},
   address: {type: String},
@@ -11,3 +11,5 @@ var user = new mongoose.Schema({
   email: {type: String, required: true},
   courses: {type: [Number]} //ids of finished courses
 });
+
+mongoose.model('User',userSchema,'CPD');
