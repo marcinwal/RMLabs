@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Course = mongoose.model('Course');
 
-var sendJsonResponse = function(response,status,content){
+module.exports.sendJsonResponse = function(response,status,content){
   response.status(status);
   response.json(content);
 };
