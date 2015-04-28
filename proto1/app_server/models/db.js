@@ -1,14 +1,17 @@
 var mongoose = require('mongoose');
 var dbURI ='mongodb://localhost/CPD';
+
+//condition for live env
+if (process.env.NODE_ENV === 'production'){
+  dbURI = process.env.MONGOLAB_URI_CPD;
+};
+
 mongoose.connect(dbURI);
 //for many connections 
 //var dbURILog = 'mongodb://localhost/CPD'
 //var logDB = mongoose.createConnection(dbURILog)
 // logDB.on ... logDB.close
 
-// if(process.env.NODE_ENV === 'production'){
-//   dbURL = process.env.MONGOLAB_URI_CPD;
-// }
 
 mongoose.connection.on('connected',function(){
   console.log('Moongose connected to'+dbURI);
