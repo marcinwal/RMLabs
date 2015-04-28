@@ -52,3 +52,7 @@ process.on('SIGTERM',function(){
     process.exit(0);
   });
 });
+
+//calling for schemas and models
+require('./course');
+require('./user');
