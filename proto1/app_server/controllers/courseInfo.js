@@ -24,6 +24,34 @@ var renderStaticCourseInfopage = function(request,response){
     }});
 };
 
+var renderCourseInfopage = function(request,response,responseBody){
+  response.render('course-info',
+    {title: 'Course info',
+    courseDetails: responseBody
+    });
+};
+
+var renderFromApi = function(request,responese){
+  var requestOptions,path;
+  path = '/api/course/' + request.params.courseid;
+  requestOptions = {
+    url: apiOptions.server + path,
+    method: "GET",
+    json: {}
+    // qs: {
+    //   lng: -1,
+    //   lat: 51,
+    //   maxDistance: 20
+    // }
+  };
+  request(requestOptions,
+          function(error,response,body){
+            if(response.status === 200){
+              renderCourseInfopage(request,response,body);
+            }
+          });
+};
+
 var renderCourseNewPage = function(request,response){
   response.render('course-new',{title: 'Adding new course'
   });  

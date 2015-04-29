@@ -5,6 +5,7 @@ var apiOptions = {
 };
 
 //!!!!!!!!!!!!!! to change
+//linking for API 
 if(process.env.NODE_ENV === 'production'){
   apiOptions.server = "https://myapp.herokuapp.com"
 }
