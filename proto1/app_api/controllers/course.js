@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Course = mongoose.model('Course');
 
+
 sendJsonResponse = function(response,status,content){
   response.status(status);
   response.json(content);
@@ -33,12 +34,13 @@ module.exports.courseUpdate = function(request,response){
 };
 
 module.exports.courseDelete = function(request,response){
-  var courseid = request.params.userid;
-  if(userid){
+  var courseid = request.params.courseid;
+  if(courseid){
     Course
       .findByIdAndRemove(courseid)
       .exec(function(error,course){
         if(error){
+          // console.log(courseid);
           sendJsonResponse(response,404,error);
           return;
         }else{

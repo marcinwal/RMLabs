@@ -1,4 +1,15 @@
-module.exports.courseInfo = function(request,response){
+var request = require('request');
+var apiOptions = {
+    server: "http://localhost:3000"
+};
+
+//!!!!!!!!!!!!!! to change
+if(process.env.NODE_ENV === 'production'){
+  apiOptions.server = "https://myapp.herokuapp.com"
+}
+
+
+var renderStaticCourseInfopage = function(request,response){
   response.render('course-info',{title: 'Course info',
     courseDetails:{
       name: 'Best Lawyer',
@@ -13,7 +24,15 @@ module.exports.courseInfo = function(request,response){
     }});
 };
 
-module.exports.courseNew = function(request,response){
+var renderCourseNewPage = function(request,response){
   response.render('course-new',{title: 'Adding new course'
-  });
+  });  
+};
+
+module.exports.courseInfo = function(request,response){
+  renderStaticCourseInfopage(request,response);
+};
+
+module.exports.courseNew = function(request,response){
+  renderCourseNewPage(request,response);
 };

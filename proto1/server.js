@@ -3,6 +3,7 @@ var path = require('path');
 var http = require('http');
 var app = express();
 var server = http.createServer(app);
+
 require('./app_api/models/db'); //link to mongoose
 
 var cookieParser = require('cookie-parser');
@@ -12,6 +13,8 @@ var bodyParser = require('body-parser');
 //routes for api and the server
 var routes = require('./app_server/routes/index');
 var routesAPi = require('./app_api/routes/index');
+
+
 
 
 //server set-up

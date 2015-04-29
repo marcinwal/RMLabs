@@ -1,4 +1,13 @@
 var SFsimulator = require('../helpers/SFsimulator');
+var request = require('request');
+var apiOptions = {
+    server: "http://localhost:3000"
+};
+
+//!!!!!!!!!!!!!! to change
+if(process.env.NODE_ENV === 'production'){
+  apiOptions.server = "https://myapp.herokuapp.com"
+}
 
 module.exports.admin_id = function(request,response){
   var id = request.params.id;
