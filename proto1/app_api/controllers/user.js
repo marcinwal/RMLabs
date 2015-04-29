@@ -4,8 +4,22 @@ var courseCtrl = require('./course');
 
 
 module.exports.userCreate = function(request,response){
-  courseCtrl.sendJsonResponse(response,200,{"status":"user created"});
+  User.create({
+    name: request.body.name,
+    surname: request.body.surname,
+    address: request.body.address,
+    dateOfBirth: request.body.dof,
+    pass: request.body.pass,
+    email: request.body.email,
+  },function(error,user){
+    if(error){
+      courseCtrl.sendJsonResponse(response,404,error);
+    } else{
+      courseCtrl.sendJsonResponse(response,201,user);
+    }
+   }); 
 };
+
 
 module.exports.userInfo = function(request,response){
   courseCtrl.sendJsonResponse(response,200,{"status":"user info"});  

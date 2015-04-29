@@ -7,7 +7,21 @@ sendJsonResponse = function(response,status,content){
 };
 
 module.exports.courseCreate = function(request,response){
-  sendJsonResponse(response,200,{"status": "course create success"});
+  // console.log(request);
+  Course.create({
+    name: request.body.name,
+    address: request.body.address,
+    levels: request.body.levels,
+    location: [parseFloat(request.body.lng),parseFloat(request.body.lat)],
+    startDate: request.body.startdate,
+    endDate: request.body.enddate
+  },function(error,course){
+    if(error){
+      sendJsonResponse(response,404,error);
+    }else{
+      sendJsonResponse(response,201,course);
+    }
+  });
 };
 
 module.exports.courseInfo = function(request,response){
