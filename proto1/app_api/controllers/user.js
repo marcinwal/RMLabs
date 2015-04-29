@@ -54,15 +54,21 @@ module.exports.usersReadOne = function(request,response){
   }
 };
 
+//todo
+
+module.exports.userUpdateOne = function(request,response){
+
+};
+
 module.exports.usersAddCourse = function(request,response){
   var userid = request.params.userid;
-  var courseid = request.params.courseid;
-  var cpddate = request.params.cpddate;
-  var cpdpoints = request.params.cpdpoints;
+  var courseid = request.body.courseid;
+  var cpddate = request.body.cpddate;
+  var cpdpoints = request.body.cpdpoints;
   if(userid && courseid && cpddate && cpdpoints){
     User
         .findById(userid)
-        .select('CPD CPDdates')
+        .select('CPD CPDdates courses')
         .exec(function(error,user){
           if(error){
             courseCtrl.sendJsonResponse(response,404,error)
@@ -71,10 +77,18 @@ module.exports.usersAddCourse = function(request,response){
             user.CPD.push(cpdpoints);
             user.CPDdates.push(cpddate);
             user.courses.push(courseid);
-            courseCtrl.sendJsonResponse(response,200,{"message":"CPD updated"});
+            user.save(function(error,user){
+              if(error){
+                courseCtrl.sendJsonResponse(response,404,error);  
+              }else
+              {
+                courseCtrl.sendJsonResponse(response,200,{"message":"CPD updated"});        
+              }
+            });
+            
           }
         });
   }else{
     courseCtrl.sendJsonResponse(response,404,{"message":"params are missing"});
   }
-}
+};

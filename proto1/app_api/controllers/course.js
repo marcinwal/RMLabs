@@ -33,7 +33,22 @@ module.exports.courseUpdate = function(request,response){
 };
 
 module.exports.courseDelete = function(request,response){
-  sendJsonResponse(response,200,{"status": "course deletion success"});
+  var courseid = request.params.userid;
+  if(userid){
+    Course
+      .findByIdAndRemove(courseid)
+      .exec(function(error,course){
+        if(error){
+          sendJsonResponse(response,404,error);
+          return;
+        }else{
+          sendJsonResponse(response,204,null);  
+        }
+      });
+  }else
+  {
+    sendJsonResponse(response,404,{"message": "no courseid"});
+  }
 };
 
 
@@ -41,12 +56,12 @@ module.exports.coursesReadOne = function(request,response){
   if(request.params && request.params.courseid){
     Course
       .findById(request.params.courseid)
-      .exec(function(err,course){
+      .exec(function(error,course){
         if (!course) {
           sendJsonResponse(response,404,{
             'message': "course not found"
           });
-        } else if(err){
+        } else if(error){
           sendJsonResponse(response,404,err);
         }
         sendJsonResponse(response,200,course);
@@ -56,6 +71,11 @@ module.exports.coursesReadOne = function(request,response){
       'message': "No courseid in request"
     });
   }
+};
+
+//todo
+module.exports.coursesUpdateOne = function(request,response){
+
 };
 
 
