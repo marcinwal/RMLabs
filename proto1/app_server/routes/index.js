@@ -15,8 +15,8 @@ router.get('/about',ctrlAbout.about);
 router.get('/admin',ctrlAdmin.admin);
 router.get('/admin/:id',ctrlAdmin.admin_id);
 router.get('/course',ctrlCourse.courseInfo);
-router.get('/course/:courseid',ctrlCourse.courseInfo);
 router.get('/course/new',ctrlCourse.courseNew);
+router.get('/course/:courseid',ctrlCourse.courseInfo);
 router.get('/cpd',ctrlCPD.cpd);
 
 module.exports = router;

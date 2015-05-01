@@ -53,6 +53,7 @@ var renderFromApi = function(request,responese){
 };
 
 var renderCourseNewPage = function(request,response){
+  console.log('rendering new page');
   response.render('course-new',{title: 'Adding new course'
   });  
 };
